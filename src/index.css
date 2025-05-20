@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-semibold rounded-full py-3 px-8 text-base transition hover:bg-primary-dark shadow-md hover:scale-105 active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-fancy p-8 flex flex-col items-center hover:shadow-2xl hover:-translate-y-1 transition;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom Side3 hover effect */
+.side3 {
+  @apply relative overflow-hidden bg-black;
+  perspective: 600px;
+}
+.side3 img {
+  @apply block w-full transition-opacity duration-300;
+}
+.side3:hover img {
+  @apply opacity-40;
+}
+.side3-fig {
+  @apply absolute inset-0 flex flex-col items-center justify-center text-white uppercase transition-all duration-300;
+  transform: translateX(350%) rotate(180deg);
+}
+.side3:hover .side3-fig {
+  transform: translateX(0) rotate(0deg);
 }
